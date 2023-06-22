@@ -12,7 +12,7 @@
       <video src="./Untitled video - Made with Clipchamp.mp4"></video>
     </div>
     <section>
-      <h1>Revoulutionary</h1>
+      <h1>Do You Like This</h1>
     </section>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
@@ -57,7 +57,7 @@
       const controller = new ScrollMagic.Controller();
 
       // scene
-      const scene = new ScrollMagic.Scene({
+      let scene = new ScrollMagic.Scene({
         duration: 14000,
         triggerElement: intro,
         triggerHook: 0,
@@ -70,6 +70,17 @@
       let accelAmount = 0.1;
       let scrollPos = 0;
       let delay = 0;
+      const textAnim = TweenMax.fromTo(text, 2, { opacity: 1 }, { opacity: 0 });
+
+      let scene2 = new ScrollMagic.Scene({
+        duration: 3000,
+        triggerElement: intro,
+        triggerHook: 0,
+      })
+        .setTween(textAnim)
+        .addTo(controller);
+
+      //   Text aaaaanimation
 
       scene.on("update", (e) => {
         scrollPos = e.scrollPos / 1000;
